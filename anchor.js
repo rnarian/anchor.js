@@ -1,7 +1,15 @@
-$(function() {
-  var elements = $('h1,h2,h3,h4,h5,h6'),
-      hClass = 'anchored',
-      aClass = 'anchor',
+$.fn.anchor = function(options) {
+
+  var defaults = {
+    headingClass: 'anchored',
+    anchorClass:  'anchor',
+    symbol:       '¶'
+  }
+
+  console.log($(this));
+
+  var opt = $.extend({}, defaults, options),
+      elements = $(this),
       usedNames = [];
 
   elements.each(function() {
@@ -30,17 +38,17 @@ $(function() {
     /**
      *  Set anchor id and class name
      */
-    self.addClass(hClass)
+    self.addClass(opt.headingClass)
         .attr('id', id);
 
     /**
      *  Append clickable anchor
      */
-    self.append('<a class="' + aClass + '" href="#' + id + '">¶</a>');
+    self.append('<a class="' + opt.anchorClass + '" href="#' + id + '">' + opt.symbol + '</a>');
 
     /**
      *  Update count of used name
      */
     usedNames[name] = count;
   });
-});
+};
