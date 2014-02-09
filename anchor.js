@@ -1,5 +1,7 @@
 $(function() {
   var elements = $('h1,h2,h3,h4,h5,h6'),
+      hClass = 'anchored',
+      aClass = 'anchor',
       usedNames = [];
 
   elements.each(function() {
@@ -28,13 +30,13 @@ $(function() {
     /**
      *  Set anchor id and class name
      */
-    self.addClass('anchored')
+    self.addClass(hClass)
         .attr('id', id);
 
     /**
      *  Append clickable anchor
      */
-    self.append('<a class="anchor" href="#' + id + '"> ¶ </a>');
+    self.append('<a class="' + aClass + '" href="#' + id + '">¶</a>');
 
     /**
      *  Update count of used name
