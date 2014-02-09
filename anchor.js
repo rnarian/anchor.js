@@ -5,7 +5,7 @@ $.fn.anchor = function(options) {
     anchorClass:  'anchor',
     symbol:       '¶',
     maxLength:    30
-  }
+  };
 
   var opt = $.extend({}, defaults, options),
       elements = $(this),
@@ -16,7 +16,7 @@ $.fn.anchor = function(options) {
                       .replace(/[_\s]/g, '-')
                       .replace(/ /g, '-').toLowerCase();
     return cleaned;
-  }
+  };
 
   elements.each(function() {
     var self = $(this),
