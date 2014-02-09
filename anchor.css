@@ -1,0 +1,10 @@
+.anchor {
+  color: currentcolor;
+  text-decoration: none;
+  padding: 0 .3em;
+  opacity: 0;
+  transition: opacity .15s ease-in-out;
+}
+
+.anchored:hover .anchor { opacity: .5; }
+.anchored .anchor:hover { opacity: 1; }
