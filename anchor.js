@@ -4,7 +4,7 @@ $.fn.anchor = function(options) {
     headingClass: 'anchored',
     anchorClass:  'anchor',
     symbol:       '¶',
-    maxLength:    30
+    maxLength:    100
   };
 
   var opt = $.extend({}, defaults, options),
@@ -27,7 +27,7 @@ $.fn.anchor = function(options) {
     /**
      *  Strip away unwanted characters
      */
-    if(name.length > opt.maxLength) name = name.substring(0,opt.maxLength);
+    if(name.length > opt.maxLength) name = name.substring(0, opt.maxLength);
     name = cleanName(name);
 
     /**
