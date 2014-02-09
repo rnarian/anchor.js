@@ -8,10 +8,16 @@ $(function() {
         count = 1,
         id;
 
+    /**
+     *  Strip away unwanted characters
+     */
     name = name.replace(/[^a-z0-9\s]/gi, '')
                .replace(/[_\s]/g, '-')
                .replace(/ /g, '-').toLowerCase();
 
+    /**
+     *  Make sure anchor isn't already in use
+     */
     if (usedNames[name] >= 1) {
       count = usedNames[name] + 1;
       id = name + '-' + count;
@@ -19,11 +25,20 @@ $(function() {
       id = name;
     }
 
-    self.addClass('anchored');
-    self.attr('id', id);
+    /**
+     *  Set anchor id and class name
+     */
+    self.addClass('anchored')
+        .attr('id', id);
 
+    /**
+     *  Append clickable anchor
+     */
     self.append('<a class="anchor" href="#' + id + '"> ¶ </a>');
 
+    /**
+     *  Update count of used name
+     */
     usedNames[name] = count;
   });
 });
