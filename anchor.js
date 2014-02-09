@@ -3,14 +3,20 @@ $.fn.anchor = function(options) {
   var defaults = {
     headingClass: 'anchored',
     anchorClass:  'anchor',
-    symbol:       '¶'
+    symbol:       '¶',
+    maxLength:    30
   }
-
-  console.log($(this));
 
   var opt = $.extend({}, defaults, options),
       elements = $(this),
       usedNames = [];
+
+  var cleanName = function (name) {
+    var cleaned = name.replace(/[^a-z0-9\s]/gi, '')
+                      .replace(/[_\s]/g, '-')
+                      .replace(/ /g, '-').toLowerCase();
+    return cleaned;
+  }
 
   elements.each(function() {
     var self = $(this),
@@ -21,9 +27,8 @@ $.fn.anchor = function(options) {
     /**
      *  Strip away unwanted characters
      */
-    name = name.replace(/[^a-z0-9\s]/gi, '')
-               .replace(/[_\s]/g, '-')
-               .replace(/ /g, '-').toLowerCase();
+    if(name.length > opt.maxLength) name = name.substring(0,opt.maxLength);
+    name = cleanName(name);
 
     /**
      *  Make sure anchor isn't already in use
