@@ -1,8 +1,8 @@
 # anchor.js
 
-jQuery plugin that automatically creates unique anchor links for headlines, paragraphs or other specified elements. See a [demo on codepen](http://codepen.io/rnarian/pen/Csadr/).
+jQuery plugin that automatically creates unique anchor links for headlines, paragraphs or other specified elements. 
 
-
+See a [demo on codepen](http://codepen.io/rnarian/pen/Csadr/).
 
 ## Installation
 
